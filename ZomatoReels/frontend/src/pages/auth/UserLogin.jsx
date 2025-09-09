@@ -1,6 +1,6 @@
-import React from 'react';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 import { useNavigate } from 'react-router-dom';
 
 const UserLogin = () => {
@@ -13,7 +13,7 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/user/login", {
+    const response = await axios.post(`${API_BASE}/api/auth/user/login`, {
       email,
       password
     }, { withCredentials: true });
